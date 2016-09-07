@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ifeng.auto.dao.DealerSalesOrderMapper">
+  <resultMap id="BaseResultMap" type="com.ifeng.auto.model.DealerSalesOrder">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="sorderid" jdbcType="VARCHAR" property="sorderid" />
+    <result column="sid" jdbcType="VARCHAR" property="sid" />
+    <result column="grouponid" jdbcType="VARCHAR" property="grouponid" />
+    <result column="enrolmentid" jdbcType="VARCHAR" property="enrolmentid" />
+    <result column="carid" jdbcType="INTEGER" property="carid" />
+    <result column="price" jdbcType="REAL" property="price" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="quotetime" jdbcType="TIMESTAMP" property="quotetime" />
+    <result column="enddate" jdbcType="TIMESTAMP" property="enddate" />
+    <result column="winbidding" jdbcType="TINYINT" property="winbidding" />
+    <result column="quote" jdbcType="TINYINT" property="quote" />
+    <result column="havecar" jdbcType="TINYINT" property="havecar" />
+    <result column="stage" jdbcType="TINYINT" property="stage" />
+    <result column="identifycode" jdbcType="VARCHAR" property="identifycode" />
+    <result column="upload" jdbcType="TINYINT" property="upload" />
+    <result column="createdate" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="updatedate" jdbcType="TIMESTAMP" property="updatedate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, sorderid, sid, grouponid, enrolmentid, carid, price, remark, quotetime, enddate, 
+    winbidding, quote, havecar, stage, identifycode, upload, createdate, updatedate
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_dealer_sales_order
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_dealer_sales_order
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ifeng.auto.model.DealerSalesOrder">
+    insert into t_dealer_sales_order (id, sorderid, sid, 
+      grouponid, enrolmentid, carid, 
+      price, remark, quotetime, 
+      enddate, winbidding, quote, 
+      havecar, stage, identifycode, 
+      upload, createdate, updatedate
+      )
+    values (#{id,jdbcType=INTEGER}, #{sorderid,jdbcType=VARCHAR}, #{sid,jdbcType=VARCHAR}, 
+      #{grouponid,jdbcType=VARCHAR}, #{enrolmentid,jdbcType=VARCHAR}, #{carid,jdbcType=INTEGER}, 
+      #{price,jdbcType=REAL}, #{remark,jdbcType=VARCHAR}, #{quotetime,jdbcType=TIMESTAMP}, 
+      #{enddate,jdbcType=TIMESTAMP}, #{winbidding,jdbcType=TINYINT}, #{quote,jdbcType=TINYINT}, 
+      #{havecar,jdbcType=TINYINT}, #{stage,jdbcType=TINYINT}, #{identifycode,jdbcType=VARCHAR}, 
+      #{upload,jdbcType=TINYINT}, #{createdate,jdbcType=TIMESTAMP}, #{updatedate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ifeng.auto.model.DealerSalesOrder">
+    insert into t_dealer_sales_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="sorderid != null">
+        sorderid,
+      </if>
+      <if test="sid != null">
+        sid,
+      </if>
+      <if test="grouponid != null">
+        grouponid,
+      </if>
+      <if test="enrolmentid != null">
+        enrolmentid,
+      </if>
+      <if test="carid != null">
+        carid,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="quotetime != null">
+        quotetime,
+      </if>
+      <if test="enddate != null">
+        enddate,
+      </if>
+      <if test="winbidding != null">
+        winbidding,
+      </if>
+      <if test="quote != null">
+        quote,
+      </if>
+      <if test="havecar != null">
+        havecar,
+      </if>
+      <if test="stage != null">
+        stage,
+      </if>
+      <if test="identifycode != null">
+        identifycode,
+      </if>
+      <if test="upload != null">
+        upload,
+      </if>
+      <if test="createdate != null">
+        createdate,
+      </if>
+      <if test="updatedate != null">
+        updatedate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="sorderid != null">
+        #{sorderid,jdbcType=VARCHAR},
+      </if>
+      <if test="sid != null">
+        #{sid,jdbcType=VARCHAR},
+      </if>
+      <if test="grouponid != null">
+        #{grouponid,jdbcType=VARCHAR},
+      </if>
+      <if test="enrolmentid != null">
+        #{enrolmentid,jdbcType=VARCHAR},
+      </if>
+      <if test="carid != null">
+        #{carid,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=REAL},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="quotetime != null">
+        #{quotetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enddate != null">
+        #{enddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="winbidding != null">
+        #{winbidding,jdbcType=TINYINT},
+      </if>
+      <if test="quote != null">
+        #{quote,jdbcType=TINYINT},
+      </if>
+      <if test="havecar != null">
+        #{havecar,jdbcType=TINYINT},
+      </if>
+      <if test="stage != null">
+        #{stage,jdbcType=TINYINT},
+      </if>
+      <if test="identifycode != null">
+        #{identifycode,jdbcType=VARCHAR},
+      </if>
+      <if test="upload != null">
+        #{upload,jdbcType=TINYINT},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedate != null">
+        #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ifeng.auto.model.DealerSalesOrder">
+    update t_dealer_sales_order
+    <set>
+      <if test="sorderid != null">
+        sorderid = #{sorderid,jdbcType=VARCHAR},
+      </if>
+      <if test="sid != null">
+        sid = #{sid,jdbcType=VARCHAR},
+      </if>
+      <if test="grouponid != null">
+        grouponid = #{grouponid,jdbcType=VARCHAR},
+      </if>
+      <if test="enrolmentid != null">
+        enrolmentid = #{enrolmentid,jdbcType=VARCHAR},
+      </if>
+      <if test="carid != null">
+        carid = #{carid,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=REAL},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="quotetime != null">
+        quotetime = #{quotetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enddate != null">
+        enddate = #{enddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="winbidding != null">
+        winbidding = #{winbidding,jdbcType=TINYINT},
+      </if>
+      <if test="quote != null">
+        quote = #{quote,jdbcType=TINYINT},
+      </if>
+      <if test="havecar != null">
+        havecar = #{havecar,jdbcType=TINYINT},
+      </if>
+      <if test="stage != null">
+        stage = #{stage,jdbcType=TINYINT},
+      </if>
+      <if test="identifycode != null">
+        identifycode = #{identifycode,jdbcType=VARCHAR},
+      </if>
+      <if test="upload != null">
+        upload = #{upload,jdbcType=TINYINT},
+      </if>
+      <if test="createdate != null">
+        createdate = #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedate != null">
+        updatedate = #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ifeng.auto.model.DealerSalesOrder">
+    update t_dealer_sales_order
+    set sorderid = #{sorderid,jdbcType=VARCHAR},
+      sid = #{sid,jdbcType=VARCHAR},
+      grouponid = #{grouponid,jdbcType=VARCHAR},
+      enrolmentid = #{enrolmentid,jdbcType=VARCHAR},
+      carid = #{carid,jdbcType=INTEGER},
+      price = #{price,jdbcType=REAL},
+      remark = #{remark,jdbcType=VARCHAR},
+      quotetime = #{quotetime,jdbcType=TIMESTAMP},
+      enddate = #{enddate,jdbcType=TIMESTAMP},
+      winbidding = #{winbidding,jdbcType=TINYINT},
+      quote = #{quote,jdbcType=TINYINT},
+      havecar = #{havecar,jdbcType=TINYINT},
+      stage = #{stage,jdbcType=TINYINT},
+      identifycode = #{identifycode,jdbcType=VARCHAR},
+      upload = #{upload,jdbcType=TINYINT},
+      createdate = #{createdate,jdbcType=TIMESTAMP},
+      updatedate = #{updatedate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
